@@ -1,69 +1,80 @@
-# React + TypeScript + Vite
+# Instrucciones para Configuración y Ejecución Local
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Requisitos Previos
 
-Currently, two official plugins are available:
+- Node.js (v18 o superior recomendado)
+- npm o yarn
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Instalación
 
-## Expanding the ESLint configuration
+1. Clona el repositorio:
+   ```sh
+   git clone <URL-del-repositorio>
+   cd todo-webapp
+   ```
+2. Instala las dependencias:
+   ```sh
+   npm install
+   # o
+   yarn install
+   ```
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Ejecución en Desarrollo
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Inicia el servidor de desarrollo con:
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```sh
+npm run dev
+# o
+yarn dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Esto abrirá la aplicación en `http://localhost:5173` (puerto por defecto de Vite).
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Scripts Útiles
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- `npm run dev` — Inicia el entorno de desarrollo
+- `npm run build` — Genera la build de producción
+- `npm run preview` — Previsualiza la build de producción localmente
+- `npm run lint` — Ejecuta ESLint para análisis de código
+
+---
+
+# Arquitectura del Sistema
+
+## Tecnologías Principales
+
+- **React**: Librería principal para la UI
+- **TypeScript**: Tipado estático para mayor robustez
+- **Vite**: Bundler rápido para desarrollo y producción
+- **ESLint**: Linter para mantener la calidad del código
+
+## Estructura de Carpetas
+
+- `src/` — Código fuente principal
+  - `components/` — Componentes reutilizables de UI
+  - `pages/` — Páginas principales de la app
+  - `layouts/` — Layouts reutilizables
+  - `hooks/` — Custom hooks
+  - `lib/` — Utilidades y helpers
+  - `assets/` — Imágenes y recursos estáticos
+- `public/` — Archivos públicos y estáticos
+
+## Decisiones Técnicas
+
+- **Vite** se eligió por su rapidez en el desarrollo y soporte nativo para TypeScript y React.
+- **TypeScript** asegura un desarrollo más seguro y escalable.
+- **Componentización**: La UI está dividida en componentes pequeños y reutilizables para facilitar el mantenimiento.
+- **ESLint**: Configuración estricta para mantener buenas prácticas y calidad de código.
+
+## Consideraciones Especiales
+
+- El proyecto está preparado para ser extendido fácilmente con nuevas páginas o componentes.
+- Se recomienda seguir la convención de nombres y estructura de carpetas para mantener la coherencia.
+- Para producción, asegúrate de configurar correctamente las variables de entorno y el servidor donde se desplegará la build.
+
+---
+
+# Contacto
+
+Para dudas o sugerencias, contacta al responsable del proyecto.
